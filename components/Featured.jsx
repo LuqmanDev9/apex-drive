@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import CarCard from "@/components/CarCard";
+import FadeIn from "@/components/FadeIn";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -70,9 +71,11 @@ export default function Featured() {
       )}
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {cars.map((car) => (
-          <CarCard key={car.id} car={car} />
-        ))}
+        {cars.map((car, index) => (
+  <FadeIn key={car.id} delay={index * 0.1}>
+    <CarCard car={car} />
+  </FadeIn>
+))}
       </div>
 
       <div className="mt-12 flex justify-center">

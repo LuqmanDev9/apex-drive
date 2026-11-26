@@ -3,15 +3,26 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Featured from "@/components/Featured";
 import HowItWorks from "@/components/HowItWorks";
+import FadeIn from "@/components/FadeIn";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Navbar />
+
       <Hero />
-      <About />
-      <Featured />
-      <HowItWorks />
-    </main>
+
+      <FadeIn>
+        <About />
+      </FadeIn>
+
+      <FadeIn>
+        <Featured />
+      </FadeIn>
+
+      <FadeIn>
+        <HowItWorks />
+      </FadeIn>
+    </>
   );
 }
