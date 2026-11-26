@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Inter, Bebas_Neue } from "next/font/google";
 import ConditionalFooter from "@/components/ConditionalFooter";
 import "./globals.css";
@@ -73,7 +74,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.variable} ${bebas.variable} antialiased`}>
         {children}
-<ConditionalFooter />
+<Suspense fallback={null}>
+  <ConditionalFooter />
+</Suspense>
       </body>
     </html>
   );

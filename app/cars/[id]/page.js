@@ -1,15 +1,14 @@
 "use client";
-
-import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import { useState, useEffect, Suspense } from "react";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-export default function CarDetails() {
+function CarDetails() {
   const { id } = useParams();
 
   const [car, setCar] = useState(null);
@@ -241,5 +240,13 @@ const [bookingError, setBookingError] = useState("");
         )}
       </section>
     </main>
+  );
+}
+
+export default function CarDetailsPage() {
+  return (
+    <Suspense fallback={<p>Loading vehicle...</p>}>
+      <CarDetails />
+    </Suspense>
   );
 }
