@@ -72,7 +72,7 @@ export default function About() {
 
       {/* RIGHT SIDE */}
       <div className="grid grid-cols-2 gap-4">
-        <div className="relative col-span-2 h-[280px] overflow-hidden rounded-[40px] md:h-[360px]">
+        <div className="relative col-span-2 h-[280px] overflow-hidden rounded-lg md:rounded-xl">
           <Image
             src="/images/about.webp"
             alt="Luxury sports car"
