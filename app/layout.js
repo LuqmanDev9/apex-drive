@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import ScrollAnimations from "@/components/ScrollAnimations";
 import { Inter, Bebas_Neue } from "next/font/google";
 import ConditionalFooter from "@/components/ConditionalFooter";
 import "./globals.css";
@@ -72,12 +73,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${bebas.variable} antialiased`}>
-        {children}
-<Suspense fallback={null}>
-  <ConditionalFooter />
-</Suspense>
-      </body>
+      <body>
+  {children}
+
+  <Suspense fallback={null}>
+    <ConditionalFooter />
+  </Suspense>
+
+  <Suspense fallback={null}>
+    <ScrollAnimations />
+  </Suspense>
+</body>
     </html>
   );
 }
