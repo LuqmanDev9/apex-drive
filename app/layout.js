@@ -1,6 +1,6 @@
 import { Suspense } from "react";
-import ScrollAnimations from "@/components/ScrollAnimations";
 import { Inter, Bebas_Neue } from "next/font/google";
+import ScrollAnimations from "@/components/ScrollAnimations";
 import ConditionalFooter from "@/components/ConditionalFooter";
 import "./globals.css";
 
@@ -60,7 +60,8 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "APEX DRIVE | Luxury Car Rental Dubai",
-    description: "Discover our exclusive collection of luxury vehicles.",
+    description:
+      "Discover our exclusive collection of luxury vehicles.",
     images: ["/og-image.webp"],
   },
 
@@ -72,18 +73,24 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
-  {children}
+    <html
+      lang="en"
+      className={`${inter.variable} ${bebas.variable}`}
+    >
+      <body
+        className="min-h-screen bg-[#101010] text-[#f5f5f5] antialiased"
+        style={{ fontFamily: "var(--font-inter)" }}
+      >
+        {children}
 
-  <Suspense fallback={null}>
-    <ConditionalFooter />
-  </Suspense>
+        <Suspense fallback={null}>
+          <ConditionalFooter />
+        </Suspense>
 
-  <Suspense fallback={null}>
-    <ScrollAnimations />
-  </Suspense>
-</body>
+        <Suspense fallback={null}>
+          <ScrollAnimations />
+        </Suspense>
+      </body>
     </html>
   );
 }

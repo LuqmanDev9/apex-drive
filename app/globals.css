@@ -1,11 +1,22 @@
-/* =================================
-   GLOBAL SCROLL ANIMATIONS
-================================= */
+@import "tailwindcss";
+
+:root {
+  --background: #101010;
+  --foreground: #f5f5f5;
+  --accent: #4263eb;
+}
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 110px;
 }
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* GLOBAL SCROLL ANIMATIONS */
 
 .scroll-reveal {
   opacity: 0;
@@ -21,27 +32,23 @@ html {
   translate: 0 0;
 }
 
-/* Reveal from left */
+/* REVEAL FROM LEFT */
 
 .scroll-reveal[data-direction="left"] {
   translate: -40px 0;
 }
 
-.scroll-reveal[data-direction="left"].scroll-visible {
-  translate: 0 0;
-}
-
-/* Reveal from right */
+/* REVEAL FROM RIGHT */
 
 .scroll-reveal[data-direction="right"] {
   translate: 40px 0;
 }
 
-.scroll-reveal[data-direction="right"].scroll-visible {
+.scroll-reveal[data-direction].scroll-visible {
   translate: 0 0;
 }
 
-/* Staggered animation delays */
+/* ANIMATION DELAYS */
 
 .scroll-reveal[data-delay="100"] {
   transition-delay: 100ms;
@@ -63,14 +70,14 @@ html {
   transition-delay: 500ms;
 }
 
-/* Custom text selection */
+/* TEXT SELECTION */
 
 ::selection {
-  background: #4263eb;
+  background: var(--accent);
   color: #ffffff;
 }
 
-/* Accessibility */
+/* ACCESSIBILITY */
 
 @media (prefers-reduced-motion: reduce) {
   html {
